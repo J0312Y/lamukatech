@@ -6,155 +6,130 @@
   <title>Contact | Lamuka Tech</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+.toast{position:fixed;top:24px;right:24px;padding:16px 24px;border-radius:12px;color:#fff;font-family:var(--font-display);font-weight:600;font-size:.9rem;z-index:99999;transform:translateX(120%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.toast.show{transform:translateX(0)}
+.toast.success{background:linear-gradient(135deg,#10b981,#059669)}
+.toast.error{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.btn-loading{pointer-events:none;opacity:.7}
+.btn-loading::after{content:'';display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;margin-left:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
 </head>
 <body>
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><a href="mailto:business@lamuka-tech.com"><i class="fas fa-envelope"></i> business@lamuka-tech.com</a><a href="tel:+242060000000"><i class="fas fa-phone"></i> +242 06 000 00 00</a></div><div class="top-bar-right"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
+  <nav class="navbar"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a><ul class="nav-links"><li><a href="index.html">Accueil</a></li><li><a href="products.html">Produits <span class="arrow">▼</span></a><div class="dropdown"><a href="bonresto.html"><div class="drop-icon orange">🍽️</div><div class="drop-text"><strong>Bonresto</strong><span>Gestion de restaurant</span></div></a><a href="kolo.html"><div class="drop-icon green">💰</div><div class="drop-text"><strong>Kolo</strong><span>Tontine digitale</span></div></a><a href="marketplace.html"><div class="drop-icon purple">🛒</div><div class="drop-text"><strong>Marketplace</strong><span>E-commerce multi-vendeurs</span></div></a></div></li><li><a href="services.html">Services</a></li><li><a href="about.html">À propos</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html" class="active">Contact</a></li></ul><a href="contact.html" class="btn btn-primary btn-sm nav-cta">Demander un devis</a><button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
 
-  <div class="top-bar"><div class="container"><div class="top-bar-left"><a href="mailto:contact@lamukatech.com"><i class="fas fa-envelope"></i> contact@lamukatech.com</a><a href="tel:+242064663469"><i class="fas fa-phone"></i> +242 06 466 34 69</a></div><div class="top-bar-right"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
-
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="products.html">Produits <span class="arrow">▼</span></a><div class="dropdown"><a href="bonresto.html"><div class="drop-icon orange">🍽️</div><div class="drop-text"><strong>Bonresto</strong><span>Gestion de restaurant</span></div></a><a href="kolo.html"><div class="drop-icon green">💰</div><div class="drop-text"><strong>Kolo</strong><span>Tontine digitale</span></div></a><a href="marketplace.html"><div class="drop-icon purple">🛒</div><div class="drop-text"><strong>Marketplace</strong><span>E-commerce multi-vendeurs</span></div></a></div></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">À propos</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Demander un devis</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-
-  <section class="page-header">
-    <h1>Contactez-Nous</h1>
-    <div class="breadcrumb"><a href="index.html">Accueil</a> / <span>Contact</span></div>
-  </section>
+  <section class="page-header"><h1>Contactez-Nous</h1><div class="breadcrumb"><a href="index.html">Accueil</a> / <span>Contact</span></div></section>
 
   <section class="section">
     <div class="container">
       <div class="contact-grid">
-        <!-- Contact Info -->
         <div class="contact-info-card fade-in">
           <h3>Parlons de votre projet</h3>
           <p>N'hésitez pas à nous contacter pour discuter de vos besoins. Nous répondons sous 24h.</p>
           <div class="contact-info-list">
-            <div class="contact-info-item">
-              <div class="ci-icon">📍</div>
-              <div class="ci-text">
-                <strong>Adresse</strong>
-                <span>Brazzaville, République du Congo</span>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="ci-icon">📧</div>
-              <div class="ci-text">
-                <strong>Email</strong>
-                <a href="mailto:contact@lamukatech.com">contact@lamukatech.com</a>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="ci-icon">📞</div>
-              <div class="ci-text">
-                <strong>Téléphone</strong>
-                <a href="tel:+242064663469">+242 06 466 34 69</a>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="ci-icon">💬</div>
-              <div class="ci-text">
-                <strong>WhatsApp</strong>
-                <a href="https://wa.me/242064663469">Discuter maintenant</a>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="ci-icon">⏰</div>
-              <div class="ci-text">
-                <strong>Heures d'ouverture</strong>
-                <span>Lun - Ven : 8h00 - 18h00<br>Sam : 9h00 - 14h00</span>
-              </div>
-            </div>
+            <div class="contact-info-item"><div class="ci-icon">📍</div><div class="ci-text"><strong>Adresse</strong><span>Brazzaville, République du Congo</span></div></div>
+            <div class="contact-info-item"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email</strong><a href="mailto:business@lamuka-tech.com">business@lamuka-tech.com</a></div></div>
+            <div class="contact-info-item"><div class="ci-icon">📞</div><div class="ci-text"><strong>Téléphone</strong><a href="tel:+242060000000">+242 06 000 00 00</a></div></div>
+            <div class="contact-info-item"><div class="ci-icon">💬</div><div class="ci-text"><strong>WhatsApp</strong><a href="https://wa.me/242060000000">Discuter maintenant</a></div></div>
+            <div class="contact-info-item"><div class="ci-icon">⏰</div><div class="ci-text"><strong>Heures d'ouverture</strong><span>Lun - Ven : 8h00 - 18h00<br>Sam : 9h00 - 14h00</span></div></div>
           </div>
         </div>
 
-        <!-- Contact Form -->
         <div class="contact-form fade-in">
           <h3 style="margin-bottom:5px;">Envoyez-nous un message</h3>
           <p style="color:var(--gray-500);font-size:0.9rem;margin-bottom:25px;">Remplissez le formulaire et nous vous répondrons dans les plus brefs délais.</p>
-          <form>
+          <form id="contactForm">
             <div class="form-row">
-              <div class="form-group">
-                <label>Nom complet *</label>
-                <input type="text" placeholder="Votre nom" required>
-              </div>
-              <div class="form-group">
-                <label>Email *</label>
-                <input type="email" placeholder="votre@email.com" required>
-              </div>
+              <div class="form-group"><label>Nom complet *</label><input type="text" id="ct_name" placeholder="Votre nom" required></div>
+              <div class="form-group"><label>Email *</label><input type="email" id="ct_email" placeholder="votre@email.com" required></div>
             </div>
             <div class="form-row">
-              <div class="form-group">
-                <label>Téléphone</label>
-                <input type="tel" placeholder="+242 06 000 00 00">
-              </div>
-              <div class="form-group">
-                <label>Sujet *</label>
-                <select required>
-                  <option value="">Sélectionner...</option>
-                  <option>Demande de devis</option>
-                  <option>Information produit</option>
-                  <option>Support technique</option>
-                  <option>Partenariat</option>
-                  <option>Autre</option>
-                </select>
-              </div>
+              <div class="form-group"><label>Téléphone</label><input type="tel" id="ct_phone" placeholder="+242 06 000 00 00"></div>
+              <div class="form-group"><label>Sujet *</label><select id="ct_subject" required><option value="">Sélectionner...</option><option>Demande de devis</option><option>Information produit</option><option>Support technique</option><option>Partenariat</option><option>Autre</option></select></div>
             </div>
-            <div class="form-group">
-              <label>Produit concerné</label>
-              <select>
-                <option value="">Aucun en particulier</option>
-                <option>Bonresto</option>
-                <option>Kolo Tontine</option>
-                <option>Marketplace</option>
-                <option>Développement sur mesure</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Message *</label>
-              <textarea placeholder="Décrivez votre projet ou votre besoin..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Envoyer le message</button>
+            <div class="form-group"><label>Produit concerné</label><select id="ct_product"><option value="">Aucun en particulier</option><option>Bonresto</option><option>Kolo Tontine</option><option>Marketplace</option><option>Développement sur mesure</option></select></div>
+            <div class="form-group"><label>Message *</label><textarea id="ct_message" placeholder="Décrivez votre projet ou votre besoin..." required></textarea></div>
+            <button type="submit" id="ctSubmitBtn" class="btn btn-primary btn-lg" style="width:100%;">Envoyer le message</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Map placeholder -->
   <section style="background:var(--gray-100);padding:0;">
-    <div style="height:350px;background:linear-gradient(135deg,var(--primary-light),var(--primary));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;text-align:center;">
-      <div>
-        <div style="font-size:3rem;margin-bottom:15px;">📍</div>
-        <h3 style="color:var(--white);margin-bottom:5px;">Brazzaville, République du Congo</h3>
-        <p style="color:var(--gray-400);">Retrouvez-nous au cœur de Brazzaville</p>
-      </div>
+    <div style="height:350px;background:linear-gradient(135deg,var(--primary-light),var(--primary));display:flex;align-items:center;justify-content:center;color:var(--white);text-align:center;">
+      <div><div style="font-size:3rem;margin-bottom:15px;">📍</div><h3 style="color:var(--white);margin-bottom:5px;">Brazzaville, République du Congo</h3><p style="color:var(--gray-400);">Retrouvez-nous au cœur de Brazzaville</p></div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about"><a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a><p>Solutions logicielles innovantes pour l'Afrique.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
-        <div><h4>Produits</h4><ul class="footer-links"><li><a href="bonresto.html">Bonresto</a></li><li><a href="kolo.html">Kolo Tontine</a></li><li><a href="marketplace.html">Marketplace</a></li></ul></div>
-        <div><h4>Entreprise</h4><ul class="footer-links"><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li><li><a href="career.html">Carrières</a></li><li><a href="terms.html">CGU</a></li></ul></div>
-        <div><h4>Contact</h4><ul class="footer-contact"><li><span class="fc-icon">📍</span><span>Brazzaville, Congo</span></li><li><span class="fc-icon">📧</span><span>contact@lamukatech.com</span></li><li><span class="fc-icon">📞</span><span>+242 06 000 00 00</span></li></ul></div>
-      </div>
-      <div class="footer-bottom"><p>© 2025 Lamuka Tech. Tous droits réservés. | <a href="terms.html">CGU</a> | <a href="privacy.html">Confidentialité</a></p></div>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-about"><a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a><p>Solutions logicielles innovantes pour l'Afrique.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div><div><h4>Produits</h4><ul class="footer-links"><li><a href="bonresto.html">Bonresto</a></li><li><a href="kolo.html">Kolo Tontine</a></li><li><a href="marketplace.html">Marketplace</a></li></ul></div><div><h4>Entreprise</h4><ul class="footer-links"><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li><li><a href="career.html">Carrières</a></li><li><a href="terms.html">CGU</a></li></ul></div><div><h4>Contact</h4><ul class="footer-contact"><li><span class="fc-icon">📍</span><span>Brazzaville, Congo</span></li><li><span class="fc-icon">📧</span><span>business@lamuka-tech.com</span></li><li><span class="fc-icon">📞</span><span>+242 06 000 00 00</span></li></ul></div></div><div class="footer-bottom"><p>© 2025 Lamuka Tech. Tous droits réservés. | <a href="terms.html">CGU</a> | <a href="privacy.html">Confidentialité</a></p></div></div></footer>
 
-  <a href="https://wa.me/242064663469" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/242060000000" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
   <script src="js/main.js"></script>
+<script>
+/* ═══════════════════════════════════════
+   EMAILJS - CONTACT FORM
+   ═══════════════════════════════════════
+   
+   🔧 CONFIGURATION REQUISE :
+   Remplace les 3 valeurs ci-dessous par tes vraies clés EmailJS
+   (voir le guide SETUP-EMAILJS.md)
+*/
+const EMAILJS_PUBLIC_KEY = 'C8cmTJHORQ21umvTV5vq7';      // ← Remplace
+const EMAILJS_SERVICE_ID = 'service_068aspp';      // ← Remplace
+const EMAILJS_CONTACT_TEMPLATE = 'template_contact'; // ← Remplace si différent
+
+// Init EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// Toast notification
+function showToast(message, type) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.className = 'toast ' + type;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+// Contact form submit
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('ctSubmitBtn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Envoi en cours...';
+  btn.classList.add('btn-loading');
+
+  const params = {
+    from_name: document.getElementById('ct_name').value,
+    from_email: document.getElementById('ct_email').value,
+    phone: document.getElementById('ct_phone').value || 'Non renseigné',
+    subject: document.getElementById('ct_subject').value,
+    product: document.getElementById('ct_product').value || 'Aucun',
+    message: document.getElementById('ct_message').value,
+    date: new Date().toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' }),
+  };
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE, params)
+    .then(() => {
+      showToast('✅ Message envoyé avec succès !', 'success');
+      document.getElementById('contactForm').reset();
+    })
+    .catch((err) => {
+      console.error('EmailJS Error:', err);
+      showToast('❌ Erreur lors de l\'envoi. Réessayez.', 'error');
+    })
+    .finally(() => {
+      btn.textContent = originalText;
+      btn.classList.remove('btn-loading');
+    });
+});
+</script>
 </body>
 </html>

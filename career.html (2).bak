@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 .modal-overlay{position:fixed;inset:0;background:rgba(3,7,18,0.72);backdrop-filter:blur(8px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .3s}
 .modal-overlay.active{display:flex}.modal-overlay.fade-in{opacity:1}
@@ -86,8 +85,6 @@
 .btn-next:hover{background:#2563eb;transform:translateY(-1px)}
 .btn-submit{padding:14px 36px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;border-radius:99px;font-family:var(--font-display);font-weight:700;font-size:.92rem;cursor:pointer;transition:.3s;display:flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(16,185,129,.3)}
 .btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(16,185,129,.35)}
-.btn-submit.loading{pointer-events:none;opacity:.7}
-.btn-submit.loading::after{content:'';display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;margin-left:6px}
 .success-state{display:none;text-align:center;padding:60px 36px}.success-state.show{display:block}
 .success-icon{width:80px;height:80px;margin:0 auto 20px;background:rgba(16,185,129,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;animation:successPop .5s cubic-bezier(.34,1.56,.64,1)}
 @keyframes successPop{from{transform:scale(0)}to{transform:scale(1)}}
@@ -96,13 +93,11 @@
 .form-group.error input,.form-group.error select,.form-group.error textarea{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.08)}
 .error-msg{color:#ef4444;font-size:.76rem;margin-top:4px;display:none}
 .form-group.error .error-msg{display:block}
-.toast{position:fixed;top:24px;right:24px;padding:16px 24px;border-radius:12px;color:#fff;font-family:var(--font-display);font-weight:600;font-size:.9rem;z-index:99999;transform:translateX(120%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
-.toast.show{transform:translateX(0)}.toast.success{background:linear-gradient(135deg,#10b981,#059669)}.toast.error{background:linear-gradient(135deg,#ef4444,#dc2626)}
 @media(max-width:640px){.modal{border-radius:16px}.modal-header{padding:24px 20px;border-radius:16px 16px 0 0}.modal-body{padding:24px 20px}.form-row{grid-template-columns:1fr}.form-steps{flex-direction:column;gap:6px}.form-nav{flex-direction:column-reverse}.form-nav button{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
-  <div class="top-bar"><div class="container"><div class="top-bar-left"><a href="mailto:business@lamuka-tech.com"><i class="fas fa-envelope"></i> business@lamuka-tech.com</a><a href="tel:+242060000000"><i class="fas fa-phone"></i> +242 06 000 00 00</a></div><div class="top-bar-right"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><a href="mailto:contact@lamukatech.com"><i class="fas fa-envelope"></i> contact@lamukatech.com</a><a href="tel:+242060000000"><i class="fas fa-phone"></i> +242 06 000 00 00</a></div><div class="top-bar-right"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
   <nav class="navbar"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a><ul class="nav-links"><li><a href="index.html">Accueil</a></li><li><a href="products.html">Produits <span class="arrow">▼</span></a><div class="dropdown"><a href="bonresto.html"><div class="drop-icon orange">🍽️</div><div class="drop-text"><strong>Bonresto</strong><span>Gestion de restaurant</span></div></a><a href="kolo.html"><div class="drop-icon green">💰</div><div class="drop-text"><strong>Kolo</strong><span>Tontine digitale</span></div></a><a href="marketplace.html"><div class="drop-icon purple">🛒</div><div class="drop-text"><strong>Marketplace</strong><span>E-commerce multi-vendeurs</span></div></a></div></li><li><a href="services.html">Services</a></li><li><a href="about.html">À propos</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul><a href="contact.html" class="btn btn-primary btn-sm nav-cta">Demander un devis</a><button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
   <section class="page-header"><h1>Rejoignez Notre Équipe</h1><div class="breadcrumb"><a href="index.html">Accueil</a> / <span>Carrières</span></div></section>
 
@@ -114,11 +109,12 @@
       <div class="feature-card fade-in" style="text-align:center;"><div class="feat-icon" style="background:rgba(249,115,22,0.1);color:#f97316;margin:0 auto 15px;">🏠</div><h4>Flexibilité</h4><p>Travail hybride. Nous valorisons les résultats.</p></div>
       <div class="feature-card fade-in" style="text-align:center;"><div class="feat-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;margin:0 auto 15px;">🤝</div><h4>Équipe Soudée</h4><p>Petite équipe où chaque membre compte.</p></div>
     </div>
+
     <div class="section-header fade-in"><span class="label">Postes Ouverts</span><h2>Offres d'Emploi</h2></div>
     <div class="job-list">
       <div class="job-card fade-in"><div class="job-card-info"><h3>Développeur React Native</h3><div class="job-meta"><span>📍 Brazzaville / Remote</span><span>⏰ Temps plein</span><span>💼 2+ ans</span></div></div><button class="btn btn-primary btn-sm" onclick="openApplyModal('Développeur React Native')">Postuler</button></div>
       <div class="job-card fade-in"><div class="job-card-info"><h3>Développeur Backend Node.js</h3><div class="job-meta"><span>📍 Brazzaville / Remote</span><span>⏰ Temps plein</span><span>💼 2+ ans</span></div></div><button class="btn btn-primary btn-sm" onclick="openApplyModal('Développeur Backend Node.js')">Postuler</button></div>
-      <div class="job-card fade-in"><div class="job-card-info"><h3>Designer UI/UX</h3><div class="job-meta"><span>📍 Brazzaville / Remote</span><span>⏰ Temps plein / Freelance</span><span>💼 1+ an</span></div></div><button class="btn btn-primary btn-sm" onclick="openApplyModal('Designer UI/UX')">Postuler</button></div>
+      <div class="job-card fade-in"><div class="job-card-info"><h3>Designer UI/UX</h3><div class="job-meta"><span>📍 Brazzaville / Remote</span><span>⏰ Temps plein / Freelance</span><span>💼 1+ an</span></div></div><button class="btn btn-primary btn-sm" onclick="openApplyModal('Designer UI\\/UX')">Postuler</button></div>
       <div class="job-card fade-in"><div class="job-card-info"><h3>Community Manager</h3><div class="job-meta"><span>📍 Brazzaville</span><span>⏰ Temps partiel</span><span>💼 Expérience souhaitée</span></div></div><button class="btn btn-primary btn-sm" onclick="openApplyModal('Community Manager')">Postuler</button></div>
       <div class="job-card fade-in"><div class="job-card-info"><h3>Stagiaire Développement</h3><div class="job-meta"><span>📍 Brazzaville</span><span>⏰ Stage (3-6 mois)</span><span>💼 Débutant accepté</span></div></div><button class="btn btn-primary btn-sm" onclick="openApplyModal('Stagiaire Développement')">Postuler</button></div>
     </div>
@@ -154,12 +150,21 @@
           <div class="form-section" id="section2">
             <div class="form-group">
               <label>Votre CV <span class="req">*</span></label>
-              <div class="upload-zone" id="uploadZone"><input type="file" id="cvFile" accept=".pdf,.doc,.docx"><div class="upload-icon" id="uploadIcon"><i class="fas fa-cloud-upload-alt"></i></div><h4 id="uploadTitle">Glissez votre CV ici ou cliquez pour parcourir</h4><p id="uploadDesc">PDF, DOC, DOCX — Max 5 Mo</p></div>
+              <div class="upload-zone" id="uploadZone">
+                <input type="file" id="cvFile" accept=".pdf,.doc,.docx">
+                <div class="upload-icon" id="uploadIcon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <h4 id="uploadTitle">Glissez votre CV ici ou cliquez pour parcourir</h4>
+                <p id="uploadDesc">PDF, DOC, DOCX — Max 5 Mo</p>
+              </div>
               <div class="upload-file-info" id="fileInfo"><div class="ufi-icon" id="fileIcon"><i class="fas fa-file-pdf"></i></div><div class="ufi-details"><div class="ufi-name" id="fileName">-</div><div class="ufi-size" id="fileSize">-</div></div><button type="button" class="ufi-remove" onclick="removeCV()"><i class="fas fa-times"></i></button></div>
               <div class="skill-loader" id="skillLoader"><div class="skill-spinner"></div>Analyse du CV en cours...</div>
               <span class="error-msg" id="cvError" style="display:none;">Veuillez uploader votre CV</span>
             </div>
-            <div class="skills-container" id="skillsContainer"><div class="skills-label"><i class="fas fa-check-circle"></i> Compétences détectées dans votre CV</div><div class="skills-tags" id="skillsTags"></div><div class="add-skill-row"><input type="text" id="newSkillInput" placeholder="Ajouter une compétence..." onkeydown="if(event.key==='Enter'){event.preventDefault();addManualSkill();}"><button type="button" class="add-skill-btn" onclick="addManualSkill()"><i class="fas fa-plus"></i> Ajouter</button></div></div>
+            <div class="skills-container" id="skillsContainer">
+              <div class="skills-label"><i class="fas fa-check-circle"></i> Compétences détectées dans votre CV</div>
+              <div class="skills-tags" id="skillsTags"></div>
+              <div class="add-skill-row"><input type="text" id="newSkillInput" placeholder="Ajouter une compétence..." onkeydown="if(event.key==='Enter'){event.preventDefault();addManualSkill();}"><button type="button" class="add-skill-btn" onclick="addManualSkill()"><i class="fas fa-plus"></i> Ajouter</button></div>
+            </div>
             <div class="form-nav"><button type="button" class="btn-back" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Retour</button><button type="button" class="btn-next" onclick="goStep(3)">Continuer <i class="fas fa-arrow-right"></i></button></div>
           </div>
           <!-- STEP 3 -->
@@ -167,7 +172,7 @@
             <div class="form-group"><label>Lettre de motivation / Message <span class="req">*</span></label><textarea id="message" rows="6" placeholder="Présentez-vous et expliquez pourquoi vous souhaitez rejoindre Lamuka Tech..." required></textarea><small>Minimum 50 caractères</small><span class="error-msg">Message trop court (min. 50 caractères)</span></div>
             <div class="form-group"><label>Lien LinkedIn / Portfolio (optionnel)</label><input type="url" id="portfolio" placeholder="https://linkedin.com/in/votre-profil"></div>
             <div class="form-group"><label>Disponibilité</label><select id="availability"><option>Immédiate</option><option>Dans 2 semaines</option><option>Dans 1 mois</option><option>Dans 3 mois</option></select></div>
-            <div class="form-nav"><button type="button" class="btn-back" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Retour</button><button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Envoyer ma candidature</button></div>
+            <div class="form-nav"><button type="button" class="btn-back" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Retour</button><button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Envoyer ma candidature</button></div>
           </div>
         </form>
       </div>
@@ -175,27 +180,14 @@
     </div>
   </div>
 
-  <div class="toast" id="toast"></div>
-
-  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-about"><a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a><p>Solutions logicielles innovantes pour l'Afrique.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div><div><h4>Produits</h4><ul class="footer-links"><li><a href="bonresto.html">Bonresto</a></li><li><a href="kolo.html">Kolo Tontine</a></li><li><a href="marketplace.html">Marketplace</a></li></ul></div><div><h4>Entreprise</h4><ul class="footer-links"><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li><li><a href="career.html">Carrières</a></li></ul></div><div><h4>Contact</h4><ul class="footer-contact"><li><span class="fc-icon">📍</span><span>Brazzaville, Congo</span></li><li><span class="fc-icon">📧</span><span>business@lamuka-tech.com</span></li></ul></div></div><div class="footer-bottom"><p>© 2025 Lamuka Tech. Tous droits réservés.</p></div></div></footer>
-  <a href="https://wa.me/242064663469" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-about"><a href="index.html" class="logo"><div class="logo-icon">L</div>Lamuka<span>Tech</span></a><p>Solutions logicielles innovantes pour l'Afrique.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div><div><h4>Produits</h4><ul class="footer-links"><li><a href="bonresto.html">Bonresto</a></li><li><a href="kolo.html">Kolo Tontine</a></li><li><a href="marketplace.html">Marketplace</a></li></ul></div><div><h4>Entreprise</h4><ul class="footer-links"><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li><li><a href="career.html">Carrières</a></li></ul></div><div><h4>Contact</h4><ul class="footer-contact"><li><span class="fc-icon">📍</span><span>Brazzaville, Congo</span></li><li><span class="fc-icon">📧</span><span>contact@lamukatech.com</span></li></ul></div></div><div class="footer-bottom"><p>© 2025 Lamuka Tech. Tous droits réservés.</p></div></div></footer>
+  <a href="https://wa.me/242060000000" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
   <script src="js/main.js"></script>
 <script>
-/* ═══════════════════════════════════════════════════════════
-   🔧 CONFIGURATION EMAILJS
-   ═══════════════════════════════════════════════════════════ */
-const EMAILJS_PUBLIC_KEY = 'C8cmTJHORQ21umvTV5vq7';
-const EMAILJS_SERVICE_ID = 'service_068aspp';
-const EMAILJS_RECRUIT_TEMPLATE = 'template_recruit';
-
-emailjs.init(EMAILJS_PUBLIC_KEY);
-
-/* PDF.js */
+/* ═══ RECRUITMENT LOGIC ═══ */
 if(typeof pdfjsLib!=='undefined')pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-let currentStep=1,extractedSkills=[],uploadedFile=null,cvBase64=null;
-
-function showToast(msg,type){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000);}
+let currentStep=1,extractedSkills=[],uploadedFile=null;
 
 const SKILLS_DB={
   tech:['javascript','typescript','python','java','c\\+\\+','c#','php','ruby','swift','kotlin','dart','rust','go','golang','html','css','sass','scss','sql','nosql','graphql','react','react native','reactjs','react.js','angular','vue','vue.js','vuejs','svelte','next.js','nextjs','nuxt','node','node.js','nodejs','express','express.js','nestjs','django','flask','fastapi','spring','laravel','flutter','ionic','expo','mongodb','postgresql','postgres','mysql','redis','firebase','supabase','prisma','sequelize','docker','kubernetes','aws','azure','gcp','vercel','netlify','git','github','gitlab','ci/cd','rest','api','rest api','websocket','socket.io','tailwind','tailwindcss','bootstrap','material ui','webpack','vite','machine learning','deep learning','tensorflow','pytorch','ia','ai','nlp','blockchain','web3'],
@@ -209,34 +201,44 @@ function openApplyModal(jobTitle){
   document.getElementById('modalJobTitle').textContent=jobTitle;
   const s=document.getElementById('jobSelect');
   for(let o of s.options)if(o.value===jobTitle){o.selected=true;break;}
-  currentStep=1;extractedSkills=[];uploadedFile=null;cvBase64=null;
+  currentStep=1;extractedSkills=[];uploadedFile=null;
   document.getElementById('recruitForm').reset();removeCV();
   document.getElementById('skillsContainer').classList.remove('show');
   document.getElementById('skillsTags').innerHTML='';
   document.getElementById('successState').classList.remove('show');
   document.getElementById('modalFormBody').style.display='block';
-  const btn=document.getElementById('submitBtn');btn.classList.remove('loading');btn.innerHTML='<i class="fas fa-paper-plane"></i> Envoyer ma candidature';
   updateSteps();showSection(1);
   m.classList.add('active');document.body.style.overflow='hidden';
   requestAnimationFrame(()=>m.classList.add('fade-in'));
 }
-function closeModal(){const m=document.getElementById('applyModal');m.classList.remove('fade-in');setTimeout(()=>{m.classList.remove('active');document.body.style.overflow='';},300);}
+function closeModal(){
+  const m=document.getElementById('applyModal');m.classList.remove('fade-in');
+  setTimeout(()=>{m.classList.remove('active');document.body.style.overflow='';},300);
+}
 document.getElementById('applyModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
 function goStep(s){if(s>currentStep&&!validateStep(currentStep))return;currentStep=s;updateSteps();showSection(s);}
 function showSection(n){document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));document.getElementById('section'+n).classList.add('active');}
-function updateSteps(){for(let i=1;i<=3;i++){const ind=document.getElementById('step'+i+'Ind');ind.classList.remove('active','done');if(i<currentStep)ind.classList.add('done');else if(i===currentStep)ind.classList.add('active');}document.querySelectorAll('.form-step.done .step-num').forEach(el=>el.textContent='✓');document.querySelectorAll('.form-step:not(.done) .step-num').forEach(el=>{el.textContent=el.closest('.form-step').id.replace('step','').replace('Ind','');});}
+function updateSteps(){
+  for(let i=1;i<=3;i++){const ind=document.getElementById('step'+i+'Ind');ind.classList.remove('active','done');if(i<currentStep)ind.classList.add('done');else if(i===currentStep)ind.classList.add('active');}
+  document.querySelectorAll('.form-step.done .step-num').forEach(el=>el.textContent='✓');
+  document.querySelectorAll('.form-step:not(.done) .step-num').forEach(el=>{const id=el.closest('.form-step').id;el.textContent=id.replace('step','').replace('Ind','');});
+}
 
 function validateStep(step){
   let v=true;
-  if(step===1){['lastName','firstName','email','phone','age','city'].forEach(id=>{const el=document.getElementById(id),g=el.closest('.form-group');g.classList.remove('error');if(!el.value.trim()){g.classList.add('error');v=false;}if(id==='email'&&el.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)){g.classList.add('error');v=false;}if(id==='age'){const a=parseInt(el.value);if(isNaN(a)||a<16||a>65){g.classList.add('error');v=false;}}});}
-  else if(step===2){if(!uploadedFile){document.getElementById('cvError').style.display='block';v=false;}else document.getElementById('cvError').style.display='none';}
-  else if(step===3){const msg=document.getElementById('message'),g=msg.closest('.form-group');g.classList.remove('error');if(msg.value.trim().length<50){g.classList.add('error');v=false;}}
+  if(step===1){['lastName','firstName','email','phone','age','city'].forEach(id=>{
+    const el=document.getElementById(id),g=el.closest('.form-group');g.classList.remove('error');
+    if(!el.value.trim()){g.classList.add('error');v=false;}
+    if(id==='email'&&el.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)){g.classList.add('error');v=false;}
+    if(id==='age'){const a=parseInt(el.value);if(isNaN(a)||a<16||a>65){g.classList.add('error');v=false;}}
+  });}else if(step===2){if(!uploadedFile){document.getElementById('cvError').style.display='block';v=false;}else document.getElementById('cvError').style.display='none';
+  }else if(step===3){const msg=document.getElementById('message'),g=msg.closest('.form-group');g.classList.remove('error');if(msg.value.trim().length<50){g.classList.add('error');v=false;}}
   return v;
 }
 
-/* CV Upload */
+// CV Upload
 const uploadZone=document.getElementById('uploadZone'),cvInput=document.getElementById('cvFile');
 uploadZone.addEventListener('dragover',e=>{e.preventDefault();uploadZone.classList.add('dragover');});
 uploadZone.addEventListener('dragleave',()=>uploadZone.classList.remove('dragover'));
@@ -244,84 +246,86 @@ uploadZone.addEventListener('drop',e=>{e.preventDefault();uploadZone.classList.r
 cvInput.addEventListener('change',e=>{if(e.target.files.length)handleFile(e.target.files[0]);});
 
 function handleFile(file){
-  if(!file.name.match(/\.(pdf|doc|docx)$/i)){alert('Format non supporté. PDF, DOC ou DOCX.');return;}
-  if(file.size>5*1024*1024){alert('Fichier trop lourd. Max 5 Mo.');return;}
+  if(!file.name.match(/\.(pdf|doc|docx)$/i)){alert('Format non supporté. PDF, DOC ou DOCX uniquement.');return;}
+  if(file.size>5*1024*1024){alert('Fichier trop lourd. Maximum 5 Mo.');return;}
   uploadedFile=file;document.getElementById('cvError').style.display='none';
   uploadZone.classList.add('has-file');
   document.getElementById('uploadTitle').textContent='CV uploadé avec succès !';
-  document.getElementById('uploadDesc').textContent='Cliquez pour changer';
+  document.getElementById('uploadDesc').textContent='Cliquez pour changer de fichier';
   document.getElementById('uploadIcon').innerHTML='<i class="fas fa-check"></i>';
-  document.getElementById('fileInfo').classList.add('show');
+  const fi=document.getElementById('fileInfo');fi.classList.add('show');
   document.getElementById('fileName').textContent=file.name;
   document.getElementById('fileSize').textContent=formatSize(file.size);
   const icon=document.getElementById('fileIcon');
   if(file.name.endsWith('.pdf')){icon.innerHTML='<i class="fas fa-file-pdf"></i>';icon.className='ufi-icon';}
   else{icon.innerHTML='<i class="fas fa-file-word"></i>';icon.className='ufi-icon doc';}
-  /* Convert to base64 for EmailJS attachment */
-  const reader=new FileReader();
-  reader.onload=function(e){cvBase64=e.target.result.split(',')[1];};
-  reader.readAsDataURL(file);
   if(file.type==='application/pdf'||file.name.endsWith('.pdf'))extractSkillsFromPDF(file);
   else extractSkillsFromDoc(file);
 }
-function removeCV(){uploadedFile=null;cvBase64=null;cvInput.value='';uploadZone.classList.remove('has-file');document.getElementById('uploadTitle').textContent='Glissez votre CV ici ou cliquez pour parcourir';document.getElementById('uploadDesc').textContent='PDF, DOC, DOCX — Max 5 Mo';document.getElementById('uploadIcon').innerHTML='<i class="fas fa-cloud-upload-alt"></i>';document.getElementById('fileInfo').classList.remove('show');document.getElementById('skillsContainer').classList.remove('show');document.getElementById('skillsTags').innerHTML='';document.getElementById('skillLoader').classList.remove('show');extractedSkills=[];}
+function removeCV(){
+  uploadedFile=null;cvInput.value='';uploadZone.classList.remove('has-file');
+  document.getElementById('uploadTitle').textContent='Glissez votre CV ici ou cliquez pour parcourir';
+  document.getElementById('uploadDesc').textContent='PDF, DOC, DOCX — Max 5 Mo';
+  document.getElementById('uploadIcon').innerHTML='<i class="fas fa-cloud-upload-alt"></i>';
+  document.getElementById('fileInfo').classList.remove('show');
+  document.getElementById('skillsContainer').classList.remove('show');
+  document.getElementById('skillsTags').innerHTML='';
+  document.getElementById('skillLoader').classList.remove('show');
+  extractedSkills=[];
+}
 function formatSize(b){if(b<1024)return b+' octets';if(b<1048576)return(b/1024).toFixed(1)+' Ko';return(b/1048576).toFixed(1)+' Mo';}
 
-async function extractSkillsFromPDF(file){const loader=document.getElementById('skillLoader');loader.classList.add('show');try{const ab=await file.arrayBuffer(),pdf=await pdfjsLib.getDocument({data:ab}).promise;let t='';for(let i=1;i<=pdf.numPages;i++){const p=await pdf.getPage(i),c=await p.getTextContent();t+=c.items.map(x=>x.str).join(' ')+' ';}findSkills(t);}catch(e){loader.classList.remove('show');document.getElementById('skillsContainer').classList.add('show');}}
-async function extractSkillsFromDoc(file){const loader=document.getElementById('skillLoader');loader.classList.add('show');try{const t=await file.text();findSkills(t);}catch(e){loader.classList.remove('show');document.getElementById('skillsContainer').classList.add('show');}}
+async function extractSkillsFromPDF(file){
+  const loader=document.getElementById('skillLoader');loader.classList.add('show');
+  try{const ab=await file.arrayBuffer(),pdf=await pdfjsLib.getDocument({data:ab}).promise;let t='';
+  for(let i=1;i<=pdf.numPages;i++){const p=await pdf.getPage(i),c=await p.getTextContent();t+=c.items.map(x=>x.str).join(' ')+' ';}
+  findSkills(t);}catch(e){console.warn('PDF error:',e);loader.classList.remove('show');document.getElementById('skillsContainer').classList.add('show');}
+}
+async function extractSkillsFromDoc(file){
+  const loader=document.getElementById('skillLoader');loader.classList.add('show');
+  try{const t=await file.text();findSkills(t);}catch(e){loader.classList.remove('show');document.getElementById('skillsContainer').classList.add('show');}
+}
 
-function findSkills(text){const loader=document.getElementById('skillLoader'),tl=text.toLowerCase().replace(/[\n\r\t]+/g,' ').replace(/\s+/g,' ');extractedSkills=[];const found=new Set();Object.entries(SKILLS_DB).forEach(([cat,skills])=>{skills.forEach(skill=>{if(found.has(skill.toLowerCase()))return;const esc=skill.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const rx=new RegExp('(?:^|[\\s,;.()\\[\\]/\\-])'+esc+'(?:[\\s,;.()\\[\\]/\\-]|$)','i');if(rx.test(tl)){found.add(skill.toLowerCase());extractedSkills.push({name:capSkill(skill),category:cat});}});});setTimeout(()=>{loader.classList.remove('show');renderSkills();},800);}
+function findSkills(text){
+  const loader=document.getElementById('skillLoader'),tl=text.toLowerCase().replace(/[\n\r\t]+/g,' ').replace(/\s+/g,' ');
+  extractedSkills=[];const found=new Set();
+  Object.entries(SKILLS_DB).forEach(([cat,skills])=>{skills.forEach(skill=>{
+    if(found.has(skill.toLowerCase()))return;
+    const esc=skill.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const rx=new RegExp('(?:^|[\\s,;.()\\[\\]/\\-])'+esc+'(?:[\\s,;.()\\[\\]/\\-]|$)','i');
+    if(rx.test(tl)){found.add(skill.toLowerCase());extractedSkills.push({name:capSkill(skill),category:cat});}
+  });});
+  setTimeout(()=>{loader.classList.remove('show');renderSkills();},800);
+}
 
-function capSkill(s){const m={'javascript':'JavaScript','typescript':'TypeScript','nodejs':'Node.js','node.js':'Node.js','node':'Node.js','react native':'React Native','reactjs':'React','react.js':'React','react':'React','vuejs':'Vue.js','vue.js':'Vue.js','vue':'Vue.js','nextjs':'Next.js','next.js':'Next.js','express.js':'Express.js','express':'Express.js','postgresql':'PostgreSQL','postgres':'PostgreSQL','mongodb':'MongoDB','mysql':'MySQL','nosql':'NoSQL','graphql':'GraphQL','sql':'SQL','html':'HTML','css':'CSS','sass':'Sass','scss':'SCSS','php':'PHP','c#':'C#','c++':'C++','ci/cd':'CI/CD','aws':'AWS','gcp':'GCP','rest api':'REST API','rest':'REST','api':'API','socket.io':'Socket.IO','docker':'Docker','kubernetes':'Kubernetes','git':'Git','github':'GitHub','gitlab':'GitLab','figma':'Figma','firebase':'Firebase','supabase':'Supabase','tailwindcss':'Tailwind CSS','tailwind':'Tailwind CSS','flutter':'Flutter','dart':'Dart','kotlin':'Kotlin','swift':'Swift','prisma':'Prisma','seo':'SEO','ia':'IA','ai':'AI','nlp':'NLP','angular':'Angular','svelte':'Svelte','django':'Django','flask':'Flask','laravel':'Laravel','redis':'Redis','français':'Français','anglais':'Anglais','english':'Anglais','french':'Français','espagnol':'Espagnol','lingala':'Lingala','kikongo':'Kikongo','swahili':'Swahili','agile':'Agile','scrum':'Scrum','kanban':'Kanban','linux':'Linux','ubuntu':'Ubuntu','photoshop':'Photoshop','illustrator':'Illustrator','canva':'Canva','jira':'Jira','trello':'Trello','notion':'Notion','slack':'Slack','postman':'Postman'};const l=s.toLowerCase();return m[l]||s.charAt(0).toUpperCase()+s.slice(1);}
+function capSkill(s){
+  const m={'javascript':'JavaScript','typescript':'TypeScript','nodejs':'Node.js','node.js':'Node.js','node':'Node.js','react native':'React Native','reactjs':'React','react.js':'React','react':'React','vuejs':'Vue.js','vue.js':'Vue.js','vue':'Vue.js','nextjs':'Next.js','next.js':'Next.js','express.js':'Express.js','express':'Express.js','postgresql':'PostgreSQL','postgres':'PostgreSQL','mongodb':'MongoDB','mysql':'MySQL','nosql':'NoSQL','graphql':'GraphQL','sql':'SQL','html':'HTML','css':'CSS','sass':'Sass','scss':'SCSS','php':'PHP','c#':'C#','c++':'C++','ci/cd':'CI/CD','aws':'AWS','gcp':'GCP','rest api':'REST API','rest':'REST','api':'API','socket.io':'Socket.IO','docker':'Docker','kubernetes':'Kubernetes','git':'Git','github':'GitHub','gitlab':'GitLab','figma':'Figma','firebase':'Firebase','supabase':'Supabase','tailwindcss':'Tailwind CSS','tailwind':'Tailwind CSS','flutter':'Flutter','dart':'Dart','kotlin':'Kotlin','swift':'Swift','prisma':'Prisma','seo':'SEO','ia':'IA','ai':'AI','nlp':'NLP','angular':'Angular','svelte':'Svelte','django':'Django','flask':'Flask','laravel':'Laravel','redis':'Redis','français':'Français','anglais':'Anglais','english':'Anglais','french':'Français','espagnol':'Espagnol','lingala':'Lingala','kikongo':'Kikongo','swahili':'Swahili','agile':'Agile','scrum':'Scrum','kanban':'Kanban','linux':'Linux','ubuntu':'Ubuntu','photoshop':'Photoshop','illustrator':'Illustrator','canva':'Canva','jira':'Jira','trello':'Trello','notion':'Notion','slack':'Slack','postman':'Postman'};
+  const l=s.toLowerCase();return m[l]||s.charAt(0).toUpperCase()+s.slice(1);
+}
 
-function renderSkills(){const c=document.getElementById('skillsContainer'),t=document.getElementById('skillsTags');t.innerHTML='';if(!extractedSkills.length){c.classList.add('show');t.innerHTML='<span style="font-size:.82rem;color:#9ca3af;font-style:italic;">Aucune compétence détectée. Ajoutez-les manuellement.</span>';return;}c.classList.add('show');extractedSkills.forEach((sk,i)=>{const tag=document.createElement('span');tag.className='skill-tag '+sk.category;tag.style.animationDelay=(i*0.05)+'s';tag.innerHTML=sk.name+' <span class="remove-skill" onclick="removeSkill('+i+')">✕</span>';t.appendChild(tag);});}
+function renderSkills(){
+  const c=document.getElementById('skillsContainer'),t=document.getElementById('skillsTags');t.innerHTML='';
+  if(!extractedSkills.length){c.classList.add('show');t.innerHTML='<span style="font-size:.82rem;color:#9ca3af;font-style:italic;">Aucune compétence détectée. Ajoutez-les manuellement.</span>';return;}
+  c.classList.add('show');
+  extractedSkills.forEach((sk,i)=>{const tag=document.createElement('span');tag.className='skill-tag '+sk.category;tag.style.animationDelay=(i*0.05)+'s';tag.innerHTML=sk.name+' <span class="remove-skill" onclick="removeSkill('+i+')">✕</span>';t.appendChild(tag);});
+}
 function removeSkill(i){extractedSkills.splice(i,1);renderSkills();}
-function addManualSkill(){const inp=document.getElementById('newSkillInput'),v=inp.value.trim();if(!v)return;const l=v.toLowerCase();let cat='tech';if(SKILLS_DB.tool.some(s=>l.includes(s)))cat='tool';else if(SKILLS_DB.soft.some(s=>l.includes(s)))cat='soft';else if(SKILLS_DB.lang.some(s=>l.includes(s)))cat='lang';if(extractedSkills.some(s=>s.name.toLowerCase()===l)){inp.value='';return;}extractedSkills.push({name:capSkill(v),category:cat});inp.value='';renderSkills();}
+function addManualSkill(){
+  const inp=document.getElementById('newSkillInput'),v=inp.value.trim();if(!v)return;
+  const l=v.toLowerCase();let cat='tech';
+  if(SKILLS_DB.tool.some(s=>l.includes(s)))cat='tool';
+  else if(SKILLS_DB.soft.some(s=>l.includes(s)))cat='soft';
+  else if(SKILLS_DB.lang.some(s=>l.includes(s)))cat='lang';
+  if(extractedSkills.some(s=>s.name.toLowerCase()===l)){inp.value='';return;}
+  extractedSkills.push({name:capSkill(v),category:cat});inp.value='';renderSkills();
+}
 
-/* ═══ ENVOI EMAILJS ═══ */
 document.getElementById('recruitForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  if(!validateStep(3))return;
-
-  const btn=document.getElementById('submitBtn');
-  btn.classList.add('loading');
-  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-  const params={
-    to_email: 'business@lamuka-tech.com',
-    job_title: document.getElementById('jobSelect').value,
-    last_name: document.getElementById('lastName').value,
-    first_name: document.getElementById('firstName').value,
-    candidate_email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
-    age: document.getElementById('age').value,
-    city: document.getElementById('city').value,
-    skills: extractedSkills.map(s=>s.name).join(', ') || 'Non renseigné',
-    message: document.getElementById('message').value,
-    portfolio: document.getElementById('portfolio').value || 'Non renseigné',
-    availability: document.getElementById('availability').value,
-    cv_name: uploadedFile ? uploadedFile.name : 'Aucun',
-    date: new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'}),
-  };
-
-  /* Attach CV as base64 if available */
-  if(cvBase64 && uploadedFile){
-    params.cv_attachment = cvBase64;
-    params.cv_filename = uploadedFile.name;
-  }
-
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_RECRUIT_TEMPLATE, params)
-    .then(()=>{
-      document.getElementById('modalFormBody').style.display='none';
-      document.getElementById('successState').classList.add('show');
-      showToast('✅ Candidature envoyée avec succès !','success');
-    })
-    .catch((err)=>{
-      console.error('EmailJS Error:',err);
-      showToast('❌ Erreur lors de l\'envoi. Réessayez.','error');
-      btn.classList.remove('loading');
-      btn.innerHTML='<i class="fas fa-paper-plane"></i> Envoyer ma candidature';
-    });
+  e.preventDefault();if(!validateStep(3))return;
+  const data={lastName:document.getElementById('lastName').value,firstName:document.getElementById('firstName').value,email:document.getElementById('email').value,phone:document.getElementById('phone').value,age:document.getElementById('age').value,city:document.getElementById('city').value,job:document.getElementById('jobSelect').value,skills:extractedSkills.map(s=>s.name),message:document.getElementById('message').value,portfolio:document.getElementById('portfolio').value,availability:document.getElementById('availability').value,cv:uploadedFile?uploadedFile.name:null};
+  console.log('📋 Candidature:',data);
+  document.getElementById('modalFormBody').style.display='none';
+  document.getElementById('successState').classList.add('show');
 });
 </script>
 </body>
